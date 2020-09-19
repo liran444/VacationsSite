@@ -18,18 +18,29 @@ let sqlConfig = {
 // Connection is a communication line to the DB
 const connection = mysql.createConnection(sqlConfig);
 
-// Connect to the database:
-connection.connect((err) => {
-  console.log(`MySQL Connect Attempt: ${JSON.stringify(sqlConfig)}`);
+let sqlTimeout = null;
 
-  // if not NULL
-  if (err) {
-    console.log("Failed to create connection + " + err);
-    return;
-  }
-  // if err is NULL we successfully connected to MySQL
-  console.log("We're connected to MySQL");
-});
+sqlConnect();
+
+function sqlConnect() {
+
+  // Connect to the database:
+  connection.connect((err) => {
+    console.log(`MySQL Connect Attempt: ${JSON.stringify(sqlConfig)}`);
+    clearTimeout(sqlTimeout);
+
+    // if not NULL
+    if (err) {
+      console.log("Failed to create connection + " + err);
+      let sqlTimeout = setTimeout(2000, () => {
+        sqlConnect();
+      });
+      return;
+    }
+    // if err is NULL we successfully connected to MySQL
+    console.log("We're connected to MySQL");
+  });
+}
 
 // One function for executing select / insert / update / delete:
 function execute(sql) {
@@ -67,4 +78,5 @@ function executeWithParameters(sql, parameters) {
 module.exports = {
   execute,
   executeWithParameters,
+  connection
 };
