@@ -1,0 +1,26 @@
+.root {
+  max-width: 345px;
+  min-width: 400px;
+  display: inline-block;
+  margin: 30px;
+}
+
+.media {
+  height: 140px;
+}
+
+.description {
+  height: 40px;
+}
+
+.startDate {
+  color: blue;
+}
+
+.endDate {
+  color: red;
+}
+
+.vacation {
+  display: inline-block;
+}

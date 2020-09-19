@@ -1,0 +1,40 @@
+.followButton {
+  position: absolute;
+  right: 4px;
+  border-radius: 25px !important;
+  top: 220px;
+}
+
+.adminNavDiv {
+  margin-top: 20px;
+}
+
+.addVacationButton {
+  display: block !important;
+  margin: 10px !important;
+  border-radius: 10px !important;
+  outline: none !important;
+}
+
+.statisticsButton {
+  margin-top: 6px !important;
+  border-radius: 10px !important;
+  outline: none !important;
+}
+
+.searchBar {
+  display: inline-grid;
+  background-color: rgb(74, 112, 139);
+  color: white;
+  border-radius: 25px;
+  margin-top: 20px;
+}
+
+.flexDiv {
+  justify-content: center;
+  display: flex;
+}
+
+.noDataText {
+  margin-top: 50px;
+}
