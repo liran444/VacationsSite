@@ -17,19 +17,34 @@ let sqlConfig = {
 
 // Connection is a communication line to the DB
 const connection = mysql.createConnection(sqlConfig);
+const connected = false;
 
-// Connect to the database:
-connection.connect((err) => {
-  console.log(`MySQL Connect Attempt: ${JSON.stringify(sqlConfig)}`);
+let connectInterval;
 
-  // if not NULL
-  if (err) {
-    console.log("Failed to create connection + " + err);
-    return;
+connectInterval = setInterval(() => {
+
+  if (!connected) {
+
+    // Connect to the database:
+    connection.connect((err) => {
+      console.log(`MySQL Connect Attempt: ${JSON.stringify(sqlConfig)}`);
+
+      // if not NULL
+      if (err) {
+        console.log("Failed to create connection + " + err);
+        return;
+      }
+      // if err is NULL we successfully connected to MySQL
+      console.log("We're connected to MySQL");
+      connected = true;
+      clearInterval(connectInterval);
+    });
+
   }
-  // if err is NULL we successfully connected to MySQL
-  console.log("We're connected to MySQL");
-});
+
+
+}, 5000)
+
 
 // One function for executing select / insert / update / delete:
 function execute(sql) {
