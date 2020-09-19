@@ -15,40 +15,7 @@ let sqlConfig = {
   database: "vacations", // Database name
 };
 
-// // Connection is a communication line to the DB
-// const connection = mysql.createConnection(sqlConfig);
-// const connected = false;
-
-// let connectInterval;
-
-// connectInterval = setInterval(() => {
-//   console.log("connectInterval")
-//   if (!connected) {
-//     console.log("connectInterval2")
-
-//     // Connect to the database:
-//     connection.connect((err) => {
-//       console.log(`MySQL Connect Attempt: ${JSON.stringify(sqlConfig)}`);
-//       console.log("connectInterval3")
-
-//       // if not NULL
-//       if (err) {
-//         console.log("Failed to create connection + " + err);
-//         return;
-//       }
-//       // if err is NULL we successfully connected to MySQL
-//       console.log("We're connected to MySQL");
-//       connected = true;
-//       clearInterval(connectInterval);
-//     });
-
-//   }
-
-
-// }, 5000)
-
-
-var connection;
+let connection;
 
 function handleDisconnect() {
   try {
@@ -64,17 +31,8 @@ function handleDisconnect() {
       } else {
         console.log("We're connected to MySQL");
       }
-      // to avoid a hot loop, and to allow our node script to
-    });                                     // process asynchronous requests in the meantime.
-    // // If you're also serving http, display a 503 error.
-    // connection.on('error', function (err) {
-    //   console.log('db error', err);
-    //   if (err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
-    //     handleDisconnect();                         // lost due to either server restart, or a
-    //   } else {                                      // connnection idle timeout (the wait_timeout
-    //     throw err;                                 // server variable configures this)
-    //   }
-    // });
+    });
+
 
   } catch (e) {
     console.log(`[handleDisconnect] - error: ${JSON.stringify(e)}`)

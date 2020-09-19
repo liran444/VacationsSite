@@ -35,14 +35,6 @@ function sortVacationsByUserFollowing(followed_vacations_data, vacations_data) {
     return 1;
   });
 
-  // vacations_data.forEach((item) => {
-  //   console.log(followed_vacations_data);
-  //   if (followed_vacations_data.find((element) => element.id === item.id)) {
-  //     console.log(item.id);
-  //     item.is_following = true;
-  //   }
-  //    return a.is_following === b.is_following ? 0 : a ? -1 : 1;
-
   return vacations_data;
 }
 
