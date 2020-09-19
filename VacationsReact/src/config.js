@@ -1,3 +1,3 @@
 module.exports = {
-  server_url: "http://localhost",
+  server_url: `http://${window.location.hostname}`,
 };

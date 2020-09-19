@@ -50,8 +50,9 @@ server.use(express.json());
 //   res.sendFile(path.join(__dirname, 'build', 'static'))
 // })
 
-
-server.use(express.static(path.join(__dirname, 'build')));
+if (process.env.PORT) {
+  server.use(express.static(path.join(__dirname, 'build')));
+}
 
 // Registering to the file upload middleware
 server.use(fileUpload());
