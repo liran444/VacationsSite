@@ -4,17 +4,15 @@
 const mysql = require("mysql2");
 
 
-let env = "DEV";
+let isDev = true;
 
-if (process.env.PORT) {
-  env = "PROD"
-}
+if (process.env.PORT) { isDev = false; }
 
 // Connection is a communication line to the DB
 const connection = mysql.createConnection({
-  host: env == "PROD" ? "35.246.213.29" : "localhost", // Default: PROD, use localhost for dev enviroment(localhost)
+  host: isDev ? "localhost" : "35.246.213.29", // Default: PROD, use localhost for dev enviroment(localhost)
   user: "root", // Username
-  password: env == "PROD" ? "uv09n6L7AOoCcJIx" : "1234", // Password, Default: uv09n6L7AOoCcJIx, use 1234 for dev enviroment(localhost)
+  password: isDev ? "1234" : "uv09n6L7AOoCcJIx", // Password, Default: uv09n6L7AOoCcJIx, use 1234 for dev enviroment(localhost)
   database: "vacations", // Database name
 });
 

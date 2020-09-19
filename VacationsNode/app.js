@@ -50,6 +50,7 @@ server.use(express.json());
 //   res.sendFile(path.join(__dirname, 'build', 'static'))
 // })
 
+//Serve the production on getting port from env, that means we are in Heroku production
 if (process.env.PORT) {
   server.use(express.static(path.join(__dirname, 'build')));
 }
