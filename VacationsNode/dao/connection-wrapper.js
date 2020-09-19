@@ -3,11 +3,18 @@
 // let ErrorType = require("./../errors/error-type");
 const mysql = require("mysql2");
 
+
+let env = "DEV";
+
+if (process.env.PORT) {
+  env = "PROD"
+}
+
 // Connection is a communication line to the DB
 const connection = mysql.createConnection({
-  host: "localhost", // Computer
+  host: env == "PROD" ? "35.246.213.29" : "localhost", // Default: PROD, use localhost for dev enviroment(localhost)
   user: "root", // Username
-  password: "1234", // Password
+  password: env == "PROD" ? "uv09n6L7AOoCcJIx" : "1234", // Password, Default: uv09n6L7AOoCcJIx, use 1234 for dev enviroment(localhost)
   database: "vacations", // Database name
 });
 
