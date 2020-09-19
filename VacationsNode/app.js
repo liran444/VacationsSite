@@ -74,7 +74,6 @@ server.use("/followers", followersController);
 // Registering to an errorHandler middleware which will handle our errors
 server.use(errorHandler);
 
-
 // Declaring that we're listening to port 3001
 server.listen(process.env.PORT || 3001, () => console.log("Listening on http://localhost:3001"));
 
