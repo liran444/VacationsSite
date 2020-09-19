@@ -36,19 +36,8 @@ server.use(cors());
 // Extracts the JSON from the body and creates a request.body object containing it:
 server.use(express.json());
 
-// // A middleware which filters which requests require to be logged in or not
-// server.use(loginFilter());
-
-
-// Serve Production:
-
-// server.get('/', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'build', 'index.html'))
-// })
-
-// server.get('/static', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'build', 'static'))
-// })
+// A middleware which filters which requests require to be logged in or not
+server.use(loginFilter());
 
 //Serve the production on getting port from env, that means we are in Heroku production
 if (process.env.PORT) {
@@ -80,5 +69,4 @@ server.use(errorHandler);
 server.listen(process.env.PORT || 80, () => console.log("Listening on http://localhost:80"));
 
 // IO Init
-
 ioInit();
