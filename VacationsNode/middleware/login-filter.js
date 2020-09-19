@@ -12,6 +12,8 @@ function authenticateJwtRequestToken() {
       "/users/login",
       "/users/",
       "/socket.io/",
+      "/static",
+      "/",
       /uploads\/.*/,
     ],
   });

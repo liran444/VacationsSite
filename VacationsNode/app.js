@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 // Using two modules which help managing file system the file upload
 const fs = require("fs");
 const fileUpload = require("express-fileupload");
+const path = require("path");
 
 // First Party modules:
 const loginFilter = require("./middleware/login-filter");
@@ -35,8 +36,22 @@ server.use(cors());
 // Extracts the JSON from the body and creates a request.body object containing it:
 server.use(express.json());
 
-// A middleware which filters which requests require to be logged in or not
-server.use(loginFilter());
+// // A middleware which filters which requests require to be logged in or not
+// server.use(loginFilter());
+
+
+// Serve Production:
+
+// server.get('/', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'build', 'index.html'))
+// })
+
+// server.get('/static', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'build', 'static'))
+// })
+
+
+server.use(express.static(path.join(__dirname, 'build')));
 
 // Registering to the file upload middleware
 server.use(fileUpload());
@@ -60,8 +75,8 @@ server.use("/followers", followersController);
 server.use(errorHandler);
 
 
-// Declaring that we're listening to port 3001
-server.listen(3001, () => console.log("Listening on http://localhost:3001"));
+// Declaring that we're listening to port 3000
+server.listen(3000, () => console.log("Listening on http://localhost:3000"));
 
 // IO Init
 
