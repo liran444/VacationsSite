@@ -22,12 +22,14 @@ const connected = false;
 let connectInterval;
 
 connectInterval = setInterval(() => {
-
+  console.log("connectInterval")
   if (!connected) {
+    console.log("connectInterval2")
 
     // Connect to the database:
     connection.connect((err) => {
       console.log(`MySQL Connect Attempt: ${JSON.stringify(sqlConfig)}`);
+      console.log("connectInterval3")
 
       // if not NULL
       if (err) {
