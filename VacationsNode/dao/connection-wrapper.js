@@ -32,9 +32,9 @@ function sqlConnect() {
     // if not NULL
     if (err) {
       console.log("Failed to create connection + " + err);
-      let sqlTimeout = setTimeout(2000, () => {
+      sqlTimeout = setTimeout(() => {
         sqlConnect();
-      });
+      }, 2000);
       return;
     }
     // if err is NULL we successfully connected to MySQL
