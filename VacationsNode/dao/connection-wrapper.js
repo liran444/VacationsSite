@@ -27,12 +27,12 @@ function sqlConnect() {
   // Connect to the database:
   connection.connect((err) => {
     console.log(`MySQL Connect Attempt: ${JSON.stringify(sqlConfig)}`);
-    clearTimeout(sqlTimeout);
+    clearInterval(sqlTimeout);
 
     // if not NULL
     if (err) {
       console.log("Failed to create connection + " + err);
-      sqlTimeout = setTimeout(() => {
+      sqlTimeout = setInterval(() => {
         sqlConnect();
       }, 2000);
       return;
