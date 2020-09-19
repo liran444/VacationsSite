@@ -9,9 +9,9 @@ let isDev = true;
 if (process.env.PORT) { isDev = false; }
 
 let sqlConfig = {
-  host: isDev ? "localhost" : "35.246.213.29", // Default: PROD, use localhost for dev enviroment(localhost)
-  user: "root", // Username
-  password: isDev ? "1234" : "uv09n6L7AOoCcJIx", // Password, Default: uv09n6L7AOoCcJIx, use 1234 for dev enviroment(localhost)
+  host: isDev ? "localhost" : "s1.combinecontrol.com", // Default: PROD, use localhost for dev enviroment(localhost)
+  user: isDev ? "root" : "vacations", // Username
+  password: isDev ? "1234" : "PDecBnpa3IcvNjfmqlOb", // Password, Default: uv09n6L7AOoCcJIx, use 1234 for dev enviroment(localhost)
   database: "vacations", // Database name
 };
 
