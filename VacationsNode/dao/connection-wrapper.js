@@ -52,6 +52,7 @@ var connection;
 
 function handleDisconnect() {
   try {
+    console.log(`MySQL Connect Attempt: ${JSON.stringify(sqlConfig)}`);
 
     connection = mysql.createConnection(sqlConfig); // Recreate the connection, since
     // the old one cannot be reused.
@@ -60,7 +61,10 @@ function handleDisconnect() {
       if (err) {                                     // or restarting (takes a while sometimes).
         console.log('error when connecting to db:', err);
         setTimeout(handleDisconnect, 5000); // We introduce a delay before attempting to reconnect,
-      }                                     // to avoid a hot loop, and to allow our node script to
+      } else {
+        console.log("We're connected to MySQL");
+      }
+      // to avoid a hot loop, and to allow our node script to
     });                                     // process asynchronous requests in the meantime.
     // // If you're also serving http, display a 503 error.
     // connection.on('error', function (err) {
