@@ -8,16 +8,20 @@ let isDev = true;
 
 if (process.env.PORT) { isDev = false; }
 
-// Connection is a communication line to the DB
-const connection = mysql.createConnection({
+let sqlConfig = {
   host: isDev ? "localhost" : "35.246.213.29", // Default: PROD, use localhost for dev enviroment(localhost)
   user: "root", // Username
   password: isDev ? "1234" : "uv09n6L7AOoCcJIx", // Password, Default: uv09n6L7AOoCcJIx, use 1234 for dev enviroment(localhost)
   database: "vacations", // Database name
-});
+};
+
+// Connection is a communication line to the DB
+const connection = mysql.createConnection(sqlConfig);
 
 // Connect to the database:
 connection.connect((err) => {
+  console.log(`MySQL Connect Attempt: ${JSON.stringify(sqlConfig)}`);
+
   // if not NULL
   if (err) {
     console.log("Failed to create connection + " + err);
