@@ -63,7 +63,7 @@ export default class MainPage extends Component<any, MainPageState> {
       })
 
     });
-    let socketConn = socketIOClient("http://vacations-project-server.herokuapp.com:3002");
+    let socketConn = socketIOClient("http://localhost:3002");
     this.setState({ socket: socketConn });
     //Register to edit vacation event
     socketConn.on("edit-vacation", (editedVacation: Vacation) => {
