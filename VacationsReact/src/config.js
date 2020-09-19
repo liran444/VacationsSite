@@ -1,3 +1,3 @@
 module.exports = {
-  server_url: "http://localhost:3001",
+  server_url: "http://vacations-project-server.herokuapp.com:3001",
 };
