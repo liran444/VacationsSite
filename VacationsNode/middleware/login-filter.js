@@ -13,6 +13,7 @@ function authenticateJwtRequestToken() {
       "/users/",
       "/socket.io/",
       "/static",
+      "/build",
       "/",
       /uploads\/.*/,
     ],
