@@ -95,15 +95,18 @@ export default class VacationComponent extends Component<any, VacationState> {
             </Typography>
           </CardContent>
           <CardActions className="d-flex">
-            <Button
-              size="small"
-              color="primary"
-              onClick={() => {
-                this.props.onFollowButtonClicked(this.props.vacation);
-              }}
-            >
-              {this.props.vacation.is_following ? "Unfollow" : "Follow"}
-            </Button>
+            {this.state.loggedInUser?.user_type !== "ADMIN" && (
+              <Button
+                size="small"
+                color="primary"
+                onClick={() => {
+                  this.props.onFollowButtonClicked(this.props.vacation);
+                }}
+              >
+                {this.props.vacation.is_following ? "Unfollow" : "Follow"}
+              </Button>
+            )}
+
             <div className="ml-auto p-2">
               <span className="startDate">
                 {this.props.vacation.start_date} -{" "}

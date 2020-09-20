@@ -6,13 +6,11 @@ import { Unsubscribe } from "redux";
 import { ActionType } from "../../redux/action-type";
 import { Vacation } from "../../models/Vacation";
 import config from "../../config";
-// import Pagination from "@material-ui/lab/Pagination";
 import ResponsiveDialog from "../dialog/dialog";
 import VacationComponent from "../vacation/vacation";
 import { Button } from "@material-ui/core";
 import { SuccessfulLoginServerResponse } from "../../models/SuccessfulLoginServerResponse";
 import DatePicker from "react-datepicker";
-import Graph from "../graph/graph";
 import socketIOClient from "socket.io-client";
 
 interface MainPageState {
@@ -143,10 +141,6 @@ export default class MainPage extends Component<any, MainPageState> {
       this.setState({ is_modal_open: true });
     }
   };
-
-  // public handlePaginationChange(event: Object, value: number) {
-  //   console.log(value);
-  // }
 
   public onEditVacationClicked(vacation: Vacation) {
     this.setState({ is_modal_open: true });
@@ -320,7 +314,6 @@ export default class MainPage extends Component<any, MainPageState> {
             </div>
           )}
         </div>
-        {/* <Graph /> */}
 
         {filteredData.map((vacation, index) => (
           <VacationComponent
@@ -351,13 +344,6 @@ export default class MainPage extends Component<any, MainPageState> {
             errorMessage={this.errorMessage}
           />
         )}
-
-        {/* <Pagination
-          count={10}
-          className="pagination justify-content-center"
-          color="primary"
-          onChange={this.handlePaginationChange}
-        /> */}
       </div>
     );
   }
