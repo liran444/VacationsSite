@@ -39,6 +39,11 @@ async function getAllFollowersData() {
   }
 }
 
+/**
+ * Inserts a new row declaring which vacation the user just followed
+ * @param {number} vacation_id - Used to identify the vacation
+ * @param {number} user_id - Used to identify the user
+ */
 async function followVacation(vacation_id, user_id) {
   let sql = "INSERT into followers (vacation_id, user_id) VALUES(?, ?);";
   let parameters = [vacation_id, user_id];
@@ -50,6 +55,11 @@ async function followVacation(vacation_id, user_id) {
   }
 }
 
+/**
+ * Deletes a row declaring which vacation the user just unfollowed
+ * @param {number} vacation_id - Used to identify the vacation
+ * @param {number} user_id - Used to identify the user
+ */
 async function unfollowVacation(vacation_id, user_id) {
   let sql = "DELETE FROM followers where vacation_id = ? and user_id = ?";
   let parameters = [vacation_id, user_id];
@@ -61,6 +71,10 @@ async function unfollowVacation(vacation_id, user_id) {
   }
 }
 
+/**
+ * Deletes all data regarding who followed the specific vacation
+ * @param {number} vacation_id - Used to identify the vacation
+ */
 async function deleteAllFollowersByVacationID(vacation_id) {
   let sql = "DELETE FROM followers where vacation_id = ?";
   let parameters = [vacation_id];

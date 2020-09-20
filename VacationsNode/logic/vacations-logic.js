@@ -21,6 +21,11 @@ async function getAllVacations(user_id) {
   return sorted_vacations_data;
 }
 
+/**
+ * Sorts the vacations so that followed ones are sorted first whereas not followed ones are last
+ * @param {Array} followed_vacations_data - contains the IDs of the vacations the user is following
+ * @param {Array} vacations_data - contains every vacation
+ */
 function sortVacationsByUserFollowing(followed_vacations_data, vacations_data) {
   vacations_data.sort((a, b) => {
     if (followed_vacations_data.find((element) => element.id === a.id)) {
@@ -38,6 +43,11 @@ function sortVacationsByUserFollowing(followed_vacations_data, vacations_data) {
   return vacations_data;
 }
 
+/**
+ * Deletes the vacation and all of its followers data from the DB
+ * @param {number} id - Used to identify the vacation
+ * @param {string} user_type - Used to validated if the user is allowed to perform the action
+ */
 async function deleteVacation(id, user_type) {
   if (user_type != "ADMIN") {
     throw new ServerError(ErrorType.UNAUTHORIZED);
@@ -84,8 +94,8 @@ async function addNewVacation(vacationDetails, user_type) {
 
 /**
  * Returns a boolean value indicating if the ending date is not equal or lower than the starting date
- * @param {string} start_date
- * @param {string} end_date
+ * @param {string} start_date - Beginning of the vacation
+ * @param {string} end_date - Ending of the vacation
  */
 function areDatesValid(start_date, end_date) {
   let today = new Date();

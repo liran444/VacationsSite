@@ -50,6 +50,9 @@ async function addNewVacation({
   }
 }
 
+/**
+ * Retrieves the ID of the last inserted Vacation
+ */
 async function getInsertedVacationID() {
   let sql = "SELECT id FROM vacations ORDER BY id DESC LIMIT 1";
 
@@ -61,6 +64,10 @@ async function getInsertedVacationID() {
   }
 }
 
+/**
+ * Deletes a vacation from the DB
+ * @param {number} id - Used to identify the vacation 
+ */
 async function deleteVacation(id) {
   let sql = "DELETE from vacations WHERE id = ?";
   let parameters = [id];
@@ -72,6 +79,10 @@ async function deleteVacation(id) {
   }
 }
 
+/**
+ * Updates a vacation in the DB with new details
+ * @param {object} vacationDetails - contains all of the details regarding the vacation 
+ */
 async function editVacation({
   destination_id,
   description,
