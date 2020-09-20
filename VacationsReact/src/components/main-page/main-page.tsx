@@ -29,7 +29,6 @@ export default class MainPage extends Component<any, MainPageState> {
   public vacation_under_edit: Vacation;
   private errorMessage: string;
   private min_date?: Date;
-  // public socket: Object;
 
   public constructor(props: any) {
     super(props);
@@ -48,7 +47,6 @@ export default class MainPage extends Component<any, MainPageState> {
     this.errorMessage = "";
     this.min_date = new Date();
     this.min_date.setDate(this.min_date.getDate() + 1);
-    // this.socket = null;
   }
 
   public async componentDidMount() {

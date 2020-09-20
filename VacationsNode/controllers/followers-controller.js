@@ -27,7 +27,7 @@ router.post("/follow", async (request, response, next) => {
     // Extracting userData with the provided token
     let userData = cacheModule.get(token);
 
-    await followersLogic.followVacation(vacation_id, userData.id);
+    await followersLogic.followVacation(vacation_id, userData);
     response.json();
   } catch (error) {
     return next(error);
@@ -48,7 +48,7 @@ router.delete("/unfollow", async (request, response, next) => {
   let userData = cacheModule.get(token);
 
   try {
-    await followersLogic.unfollowVacation(vacation_id, userData.id);
+    await followersLogic.unfollowVacation(vacation_id, userData);
     response.json();
   } catch (error) {
     return next(error);

@@ -1,4 +1,6 @@
 const followersDao = require("../dao/followers-dao");
+const ErrorType = require("../errors/error-type");
+const ServerError = require("../errors/server-error");
 
 /**
  * Gets all destinations
@@ -15,12 +17,18 @@ async function getAllFollowersData() {
   return all_followers_data;
 }
 
-async function unfollowVacation(vacation_id, user_id) {
-  await followersDao.unfollowVacation(vacation_id, user_id);
+async function unfollowVacation(vacation_id, userData) {
+  if (userData.user_type === "ADMIN") {
+    throw new ServerError(ErrorType.UNAUTHORIZED)
+  }
+  await followersDao.unfollowVacation(vacation_id, userData.user_id);
 }
 
-async function followVacation(vacation_id, user_id) {
-  await followersDao.followVacation(vacation_id, user_id);
+async function followVacation(vacation_id, userData) {
+  if (userData.user_type === "ADMIN") {
+    throw new ServerError(ErrorType.UNAUTHORIZED)
+  }
+  await followersDao.followVacation(vacation_id, userData.user_id);
 }
 
 async function deleteAllFollowersByVacationID(vacation_id) {
