@@ -369,7 +369,6 @@ export default class VacationForm extends Component<any, VacationFormState> {
                       ? `${config.server_url}/uploads/${this.state.vacation_under_edit.image_file_name}`
                       : this.state.preview
                   }
-                  alt="Vacation Destination"
                 />
                 <br />
                 <br />
