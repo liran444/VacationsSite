@@ -79,7 +79,6 @@ export default class MainPage extends Component<any, MainPageState> {
 
     //Register to add vacation event
     socketConn.on("add-vacation", (vacation: Vacation) => {
-      console.log('vacation.id', vacation.id);
       store.dispatch({
         type: ActionType.AddVacation,
         payload: vacation,
@@ -236,7 +235,6 @@ export default class MainPage extends Component<any, MainPageState> {
   };
 
   public render() {
-    console.log(this.state.vacations)
     const filteredData = [...this.state.vacations]
       .filter((vacation) =>
         this.state.start_date

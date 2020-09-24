@@ -46,11 +46,9 @@ export default class Graph extends Component<any, GraphState> {
       const response = await axios.get<FollowersData[]>(
         `${config.server_url}/followers/`
       );
-      console.log('response', response.data);
       this.displayData(response.data)
 
     } catch (error) {
-      console.log(error);
       this.errorMessage = "Failed to get Vacations, " + error.response?.data;
       this.setState({ is_modal_open: true });
     }
@@ -61,9 +59,7 @@ export default class Graph extends Component<any, GraphState> {
     let dataArray: any = [];
 
     for (let prop in followersData) {
-      console.log(prop)
       if (Object.prototype.hasOwnProperty.call(followersData, prop)) {
-        console.log('followersData', followersData[prop]);
         labels[prop] = (`Vacation #${followersData[prop].vacation_id}`);
         dataArray[prop] = (followersData[prop].total_followers);
       }

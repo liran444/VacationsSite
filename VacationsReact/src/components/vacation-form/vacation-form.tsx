@@ -370,8 +370,6 @@ export default class VacationForm extends Component<any, VacationFormState> {
                       : this.state.preview
                   }
                 />
-                <br />
-                <br />
 
                 <span className="formSpan">Description:</span>
                 <input
