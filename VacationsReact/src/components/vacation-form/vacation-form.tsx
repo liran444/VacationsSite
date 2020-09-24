@@ -371,7 +371,7 @@ export default class VacationForm extends Component<any, VacationFormState> {
                   }
                 />
 
-                <span className="formSpan, descriptionSpan">Description:</span>
+                <span className="formSpan descriptionSpan">Description:</span>
                 <input
                   type="text"
                   placeholder="* Enter Description..."
