@@ -1,7 +1,9 @@
-const io = require('socket.io')(3002);
+let io = { io: {} };
 
-async function ioInit() {
-    io.on("connection", (socket) => {
+async function ioInit(listener, ioListener) {
+    io.io = ioListener;
+
+    io.io.on("connection", (socket) => {
         console.log("socket-io new client connected")
 
         //Client disconnected:

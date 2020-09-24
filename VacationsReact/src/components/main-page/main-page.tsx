@@ -59,7 +59,7 @@ export default class MainPage extends Component<any, MainPageState> {
       })
 
     });
-    let socketConn = socketIOClient(`http://${window.location.hostname}:3002`);
+    let socketConn = socketIOClient(`http://${window.location.hostname}`);
     this.setState({ socket: socketConn });
     //Register to edit vacation event
     socketConn.on("edit-vacation", (editedVacation: Vacation) => {

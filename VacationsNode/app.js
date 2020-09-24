@@ -66,7 +66,9 @@ server.use("/followers", followersController);
 server.use(errorHandler);
 
 // Declaring that we're listening to port 80
-server.listen(process.env.PORT || 80, () => console.log("Listening on http://localhost:80"));
+let listener = server.listen(process.env.PORT || 80, () => console.log("Listening on http://localhost:80"));
+
+let io = require('socket.io')(listener);
 
 // IO Init
-ioInit();
+ioInit(listener, io);
