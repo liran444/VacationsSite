@@ -29,7 +29,7 @@ async function unfollowVacation(vacation_id, userData) {
   if (userData.user_type === "ADMIN") {
     throw new ServerError(ErrorType.UNAUTHORIZED)
   }
-  await followersDao.unfollowVacation(vacation_id, userData.user_id);
+  await followersDao.unfollowVacation(vacation_id, userData.id);
 }
 
 /**
@@ -41,7 +41,7 @@ async function followVacation(vacation_id, userData) {
   if (userData.user_type === "ADMIN") {
     throw new ServerError(ErrorType.UNAUTHORIZED)
   }
-  await followersDao.followVacation(vacation_id, userData.user_id);
+  await followersDao.followVacation(vacation_id, userData.id);
 }
 
 /**

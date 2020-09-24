@@ -50,6 +50,7 @@ async function login(userDetails) {
     id: userData.id,
     user_type: userData.user_type,
   };
+  console.log(cachedObject)
   cacheModule.set(jwtToken, cachedObject);
 
   let successfullLoginResponse = {
