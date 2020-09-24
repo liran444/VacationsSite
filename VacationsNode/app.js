@@ -36,13 +36,13 @@ server.use(cors());
 // Extracts the JSON from the body and creates a request.body object containing it:
 server.use(express.json());
 
-// A middleware which filters which requests require to be logged in or not
-server.use(loginFilter());
-
 //Serve the production on getting port from env, that means we are in Heroku production
 if (process.env.PORT) {
   server.use(express.static(path.join(__dirname, 'build')));
 }
+
+// A middleware which filters which requests require to be logged in or not
+server.use(loginFilter());
 
 // Registering to the file upload middleware
 server.use(fileUpload());
