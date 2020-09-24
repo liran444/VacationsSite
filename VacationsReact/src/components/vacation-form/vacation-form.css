@@ -35,6 +35,10 @@
   margin-bottom: 4px;
 }
 
+.descriptionSpan {
+  display: block;
+}
+
 .formHeader {
   color: darkblue;
   font-family: cursive;
