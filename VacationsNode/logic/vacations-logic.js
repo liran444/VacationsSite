@@ -56,7 +56,7 @@ async function deleteVacation(id, user_type) {
   await followersLogic.deleteAllFollowersByVacationID(id);
   await vacationsDao.deleteVacation(id);
 
-  io.io.sockets.emit('delete-vacation', id);
+  io.listener.sockets.emit('delete-vacation', id);
 }
 
 /**
@@ -69,7 +69,7 @@ async function editVacation(vacationDetails, user_type) {
   }
 
   await vacationsDao.editVacation(vacationDetails);
-  io.io.sockets.emit('edit-vacation', vacationDetails);
+  io.listener.sockets.emit('edit-vacation', vacationDetails);
 }
 /**
  * Adds a new vacation to the database, but firstly checking if the dates are valid
@@ -84,7 +84,7 @@ async function addNewVacation(vacationDetails, user_type) {
     await vacationsDao.addNewVacation(vacationDetails);
 
     let { id } = await vacationsDao.getInsertedVacationID();
-    io.io.sockets.emit('add-vacation', { ...vacationDetails, id });
+    io.listener.sockets.emit('add-vacation', { ...vacationDetails, id });
 
     return id;
   }

@@ -1,9 +1,9 @@
-let io = { io: {} };
+let io = { listener: {} };
 
 async function ioInit(listener, ioListener) {
-    io.io = ioListener;
+    io.listener = ioListener;
 
-    io.io.on("connection", (socket) => {
+    io.listener.on("connection", (socket) => {
         console.log("socket-io new client connected")
 
         //Client disconnected:
