@@ -21,6 +21,7 @@ interface MainPageState {
   end_date: Date;
   description: string;
   socket: any;
+  isLoaded: boolean;
 }
 
 export default class MainPage extends Component<any, MainPageState> {
@@ -39,7 +40,8 @@ export default class MainPage extends Component<any, MainPageState> {
       start_date: null,
       end_date: null,
       description: "",
-      socket: null
+      socket: null,
+      isLoaded: false
     };
 
     this.admin_state = "default";
@@ -132,6 +134,7 @@ export default class MainPage extends Component<any, MainPageState> {
         type: ActionType.GetAllVacations,
         payload: response.data,
       });
+      this.setState({ isLoaded: true })
     } catch (error) {
       console.log(error);
       this.errorMessage = "Failed to get Vacations, " + error.response?.data;
@@ -235,20 +238,21 @@ export default class MainPage extends Component<any, MainPageState> {
   };
 
   public render() {
+    // Duplicating the data from the state
     const filteredData = [...this.state.vacations]
-      .filter((vacation) =>
+      .filter((vacation) => // Filter by Start Date
         this.state.start_date
           ? vacation.start_date ===
           this.state.start_date.toISOString().split("T")[0]
           : 1
       )
-      .filter((vacation) =>
+      .filter((vacation) => // Filter by End Date
         this.state.end_date
           ? vacation.end_date ===
           this.state.end_date?.toISOString().split("T")[0]
           : 1
       )
-      .filter((vacation) =>
+      .filter((vacation) => // Filter by Description
         this.state.description
           ? vacation.description
             .toLowerCase()
@@ -328,8 +332,12 @@ export default class MainPage extends Component<any, MainPageState> {
           />
         ))}
 
-        {filteredData.length === 0 && (
-          <h3 className="noDataText">No Vacations Found</h3>
+        {filteredData.length === 0 && this.state.isLoaded && (
+          <h3 className="headerMessage">No Vacations Found</h3>
+        )}
+
+        {!this.state.isLoaded && (
+          <h3 className="headerMessage">Loading...</h3>
         )}
 
         {this.state.is_modal_open && (

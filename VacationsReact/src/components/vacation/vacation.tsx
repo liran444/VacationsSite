@@ -19,25 +19,11 @@ interface VacationState {
 }
 
 export default class VacationComponent extends Component<any, VacationState> {
-  private unsubscribeStore: Unsubscribe;
-
   public constructor(props: any) {
     super(props);
     this.state = {
       loggedInUser: store.getState().loggedInUser,
     };
-  }
-
-  public async componentDidMount() {
-    // this.unsubscribeStore = store.subscribe(() =>
-    //   this.setState({
-    //     loggedInUser: store.getState().loggedInUser,
-    //   })
-    // );
-  }
-
-  componentWillUnmount() {
-    // this.unsubscribeStore();
   }
 
   public render() {
@@ -109,8 +95,9 @@ export default class VacationComponent extends Component<any, VacationState> {
 
             <div className="ml-auto p-2">
               <span className="startDate">
-                {this.props.vacation.start_date} -{" "}
+                {this.props.vacation.start_date}
               </span>
+              <span> - </span>
               <span className="endDate">{this.props.vacation.end_date}</span>
             </div>
           </CardActions>

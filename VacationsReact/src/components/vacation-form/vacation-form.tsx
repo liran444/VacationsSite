@@ -59,6 +59,7 @@ export default class VacationForm extends Component<any, VacationFormState> {
         admin_state: store.getState().admin_state,
       })
     );
+    // Checking whether there's currently a vacation being edited or not
     if (store.getState().vacation_under_edit !== null) {
       this.initState();
     } else {
@@ -215,6 +216,10 @@ export default class VacationForm extends Component<any, VacationFormState> {
     }
   };
 
+  /**
+   * Determines whether the adming is adding or editing a vacation and proceeds accordingly
+   * @param event - The event of the form, used for preventing the form from refreshing (its default action on submit)
+   */
   public onFormSubmitted = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (this.state.admin_state === "Adding") {

@@ -20,6 +20,7 @@ export function reduce(oldAppState: AppState, action: Action): AppState {
       break;
     case ActionType.Login:
       newAppState.loggedInUser = action.payload;
+      sessionStorage.setItem("user_data", JSON.stringify(action.payload));
       break;
     case ActionType.AddVacation:
       newAppState.vacations.push(action.payload);

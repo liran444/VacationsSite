@@ -76,12 +76,11 @@ export default class Register extends Component<any, RegisterState> {
       axios.defaults.headers.common["Authorization"] =
         "Bearer " + serverResponse.token;
 
+      // Automatically connecting the user to the site on success
       store.dispatch({
         type: ActionType.Login,
         payload: serverResponse,
       });
-
-      sessionStorage.setItem("user_data", JSON.stringify(serverResponse));
 
       this.props.history.push("/mainPage");
     } catch (error) {

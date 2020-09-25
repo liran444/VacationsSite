@@ -52,13 +52,6 @@ export default class Header extends Component<any, HeaderState> {
     this.unsubscribeStore();
   }
 
-  // public componentDidMount() {
-  //   store.dispatch({
-  //     type: ActionType.ChangeUserState,
-  //     payload: "LOGIN",
-  //   });
-  // }
-
   public render() {
     return (
       <div>

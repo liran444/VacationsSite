@@ -65,8 +65,6 @@ export default class Login extends Component<any, LoginState> {
         payload: serverResponse,
       });
 
-      sessionStorage.setItem("user_data", JSON.stringify(serverResponse));
-
       this.props.history.push("/mainPage");
     } catch (error) {
       console.log(error);
