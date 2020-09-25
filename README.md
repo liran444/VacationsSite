@@ -4,41 +4,23 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 http://vacations-project-server.herokuapp.com/
 
-### `npm start`
+### `Vacations Sorted by Followed / not Followed`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This sorting is only done once on retrieval of the vacations and in the server. I chose to do it this way
+because I found it very uncomfortable to look at a real time sorting whenever I clicked to follow / unfollow a vacation.
+Therefore I chose to only sort once, on each retrieval.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### `Sockets`
 
-### `npm test`
+All connected clients will be notified when any of the following actions occur: "Adding a Vacation, Editing a Vacation, Deleting a Vacation".
+And the data will be updated accordingly, regardless of the following status of the vacation (Followed / Unfollowed).
+I found it wrong to present incorrect info simply because the user wasn't following that exact vacation. The information must always be up to date
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `Vacations - Get All`
 
-### `npm run build`
+All of the vacations are retrieved at once after a successul login to the site and therefore, the search bar functions as a client side search,
+due to everything already being there and there's no point in sending any requests to the server.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `Admin Restriction`
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Admins can not follow or unfollow a vacation.
