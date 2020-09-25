@@ -1,8 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Production URL
 
-In the project directory, you can run:
+http://vacations-project-server.herokuapp.com/
 
 ### `npm start`
 
