@@ -47,8 +47,8 @@ http://vacations-project-server.herokuapp.com/
 ***
 
 ### Edit Panel:
-* There's also an option to add a vacation
 ![editPanel](./editPanel.png)
+* There's also an option to add a vacation
 
 ***
 
