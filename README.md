@@ -4,19 +4,19 @@ Online Store for selling groceries using a self-service method.
 
 ## Topics:
 
-HTML + CSS
-- HTML5 Structure
-- Bootstrap design
- React
-- Redux
-- React -saga / thunk / middleware
-- Container components / service component / router etc..
- NodeJS
-- Using express
-- Restfull App
-MySQL
-- Design & create schema
-- Queries
+* HTML + CSS
+  - HTML5 Structure
+  - Bootstrap design
+* React
+  - Redux
+  - React -saga / thunk / middleware
+  - Container components / service component / router etc..
+* NodeJS
+  - Using express
+  - Restfull App
+* MySQL
+  - Design & create schema
+  - Queries
 
 ***
 
