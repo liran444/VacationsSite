@@ -1,6 +1,6 @@
-# Online_Store
+# Vacations4U
 
-Online Store for selling groceries using a self-service method.
+Vacation Follow-Up system with real time updates on any change using Sockets.IO
 
 ## Topics:
 
