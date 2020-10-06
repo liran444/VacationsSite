@@ -27,7 +27,7 @@ CREATE TABLE `destinations` (
   `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name_UNIQUE` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +36,7 @@ CREATE TABLE `destinations` (
 
 LOCK TABLES `destinations` WRITE;
 /*!40000 ALTER TABLE `destinations` DISABLE KEYS */;
-INSERT INTO `destinations` VALUES (3,'London'),(2,'New York City'),(4,'Stockholm'),(1,'Tel-Aviv');
+INSERT INTO `destinations` VALUES (5,'Kopenhagen'),(3,'London'),(6,'Madrid'),(9,'Melbourne'),(2,'New York City'),(8,'Paris'),(10,'Roma'),(4,'Stockholm'),(1,'Tel-Aviv'),(7,'Toronto');
 /*!40000 ALTER TABLE `destinations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -56,7 +56,7 @@ CREATE TABLE `followers` (
   KEY `followers_user_id_idx` (`user_id`),
   CONSTRAINT `followers_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   CONSTRAINT `followers_vacation_id` FOREIGN KEY (`vacation_id`) REFERENCES `vacations` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,7 +65,7 @@ CREATE TABLE `followers` (
 
 LOCK TABLES `followers` WRITE;
 /*!40000 ALTER TABLE `followers` DISABLE KEYS */;
-INSERT INTO `followers` VALUES (11,9,1),(20,2,1);
+INSERT INTO `followers` VALUES (20,2,1),(22,32,1),(24,9,1),(27,32,3),(28,2,3),(40,9,4);
 /*!40000 ALTER TABLE `followers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,7 +85,7 @@ CREATE TABLE `users` (
   `user_type` varchar(45) NOT NULL DEFAULT 'CUSTOMER',
   PRIMARY KEY (`id`),
   UNIQUE KEY `username_UNIQUE` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -116,7 +116,7 @@ CREATE TABLE `vacations` (
   PRIMARY KEY (`id`),
   KEY `fk_vacations_destinations_id_idx` (`destination_id`),
   CONSTRAINT `fk_vacations_destinations_id` FOREIGN KEY (`destination_id`) REFERENCES `destinations` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -125,7 +125,7 @@ CREATE TABLE `vacations` (
 
 LOCK TABLES `vacations` WRITE;
 /*!40000 ALTER TABLE `vacations` DISABLE KEYS */;
-INSERT INTO `vacations` VALUES (2,2,'Dreamlike Vacation in New York ','2020-12-05 00:00:00','2020-12-27 00:00:00',330,'7a936a38-465f-4cfe-812c-4afc0c1f6aca.jpg'),(9,3,'Winter is coming to London','2020-10-13 00:00:00','2020-10-28 00:00:00',600,'2b89829a-8039-42f4-8907-23cf9c201152.jpg'),(29,1,'Autumn in Israel','2020-10-12 00:00:00','2020-11-02 00:00:00',1100,'7bceeba8-12bc-44ef-a2d3-4fef7b9b7275.jpg'),(32,4,'Delightful Spring in Sweden','2021-04-15 00:00:00','2021-04-21 00:00:00',490,'ba24b623-5bef-4ea1-b233-f6545608b3fc.jpg');
+INSERT INTO `vacations` VALUES (2,2,'Dreamlike Vacation in New York ','2020-12-05 00:00:00','2020-12-27 00:00:00',200,'7a936a38-465f-4cfe-812c-4afc0c1f6aca.jpg'),(9,3,'Winter is coming to London','2020-10-13 00:00:00','2020-10-28 00:00:00',400,'2b89829a-8039-42f4-8907-23cf9c201152.jpg'),(29,1,'Autumn in Israel','2020-10-12 00:00:00','2020-11-02 00:00:00',333,'7bceeba8-12bc-44ef-a2d3-4fef7b9b7275.jpg'),(32,4,'Delightful Spring in Sweden','2021-04-15 00:00:00','2021-04-21 00:00:00',950,'ba24b623-5bef-4ea1-b233-f6545608b3fc.jpg');
 /*!40000 ALTER TABLE `vacations` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -138,4 +138,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-16 11:11:49
+-- Dump completed on 2020-09-25 14:19:45

@@ -1,1 +1,0 @@
-http://vacations-project-server.herokuapp.com/

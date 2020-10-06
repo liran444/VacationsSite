@@ -1,0 +1,3 @@
+http://vacations-project-server.herokuapp.com/
+
+Please also refer to README.md
