@@ -1,8 +1,61 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Online_Store
+
+Online Store for selling groceries using a self-service method.
+
+## Topics:
+
+HTML + CSS
+- HTML5 Structure
+- Bootstrap design
+ React
+- Redux
+- React -saga / thunk / middleware
+- Container components / service component / router etc..
+ NodeJS
+- Using express
+- Restfull App
+MySQL
+- Design & create schema
+- Queries
+
+***
 
 ## Production URL
 
 http://vacations-project-server.herokuapp.com/
+
+* Log in as Admin:
+  - Email: Liran , Password: 1234
+
+***
+
+### Main Page:
+
+![mainPage](./mainPage.png)
+
+***
+
+### Mobile Friendly:
+
+![mobileFriendly](./mobileFriendly.png)
+
+***
+
+### Admin Mode:
+![adminMode](./adminMode.png)
+
+***
+
+### Edit Panel:
+* There's also an option to add a vacation
+![editPanel](./editPanel.png)
+
+***
+
+### Admin Graph:
+![graph](./graph.png)
+
+***
 
 ### `Vacations Sorted by Followed / not Followed`
 
