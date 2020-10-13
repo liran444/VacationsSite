@@ -69,11 +69,6 @@ All connected clients will be notified when any of the following actions occur: 
 And the data will be updated accordingly, regardless of the following status of the vacation (Followed / Unfollowed).
 I found it wrong to present incorrect info simply because the user wasn't following that exact vacation. The information must always be up to date
 
-### `Vacations - Get All`
-
-All of the vacations are retrieved at once after a successul login to the site and therefore, the search bar functions as a client side search,
-due to everything already being there and there's no point in sending any requests to the server.
-
 ### `Admin Restriction`
 
 Admins can not follow or unfollow a vacation.
