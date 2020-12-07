@@ -25,9 +25,9 @@ Vacation Follow-Up system with real time updates on any change using Sockets.IO
 http://vacations-project-server.herokuapp.com/
 
 * Log in as Admin:
-  - Email: Liran , Password: 1234
+  - Username: Liran , Password: 1234
 * User Log-In details:
-  - Email: Johanna , Password: 1234
+  - Username: Johanna , Password: 1234
 ***
 
 ### Main Page:
