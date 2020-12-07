@@ -26,7 +26,8 @@ http://vacations-project-server.herokuapp.com/
 
 * Log in as Admin:
   - Email: Liran , Password: 1234
-
+* User Log-In details:
+  - Email: Johanna , Password: 1234
 ***
 
 ### Main Page:
