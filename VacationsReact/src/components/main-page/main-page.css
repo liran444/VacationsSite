@@ -38,3 +38,13 @@
 .headerMessage {
   margin-top: 50px;
 }
+
+.MuiDialog-paperWidthSm {
+  width: 330px;
+  overflow-x: hidden;
+}
+
+.MuiDialogContent-root {
+  position: relative;
+  left: 11%;
+}
