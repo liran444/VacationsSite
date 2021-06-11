@@ -22,7 +22,7 @@ Vacation Follow-Up system with real time updates on any change using Sockets.IO
 
 ## Production URL
 
-http://vacations-project-server.herokuapp.com/
+// Removed
 
 * Log in as Admin:
   - Username: Liran , Password: 1234
